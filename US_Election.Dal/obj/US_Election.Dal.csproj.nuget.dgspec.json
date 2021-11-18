@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ajla\\source\\repos\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj": {}
+    "C:\\Users\\Ajla\\Desktop\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ajla\\source\\repos\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj": {
+    "C:\\Users\\Ajla\\Desktop\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ajla\\source\\repos\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj",
+        "projectUniqueName": "C:\\Users\\Ajla\\Desktop\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj",
         "projectName": "US_Election.Dal",
-        "projectPath": "C:\\Users\\Ajla\\source\\repos\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj",
+        "projectPath": "C:\\Users\\Ajla\\Desktop\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj",
         "packagesPath": "C:\\Users\\Ajla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ajla\\source\\repos\\US_Election\\US_Election.Dal\\obj\\",
+        "outputPath": "C:\\Users\\Ajla\\Desktop\\US_Election\\US_Election.Dal\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -42,6 +42,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "Microsoft.AspNetCore.Mvc.Formatters.Json": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -67,6 +71,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.21, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[3.1.21, )"
             },
