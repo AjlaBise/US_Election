@@ -10,8 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using US_Election.Dal.Database;
+using US_Election.Dal.Services;
+using US_Election.Dal.Services.Interface;
 
 namespace US_Election
 {
@@ -29,9 +30,12 @@ namespace US_Election
         {
             services.AddSwaggerGen();
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
 
             var connectionString = Configuration.GetConnectionString("usElection");
             services.AddDbContext<US_ElectionDbContext>(builder => builder.UseSqlServer(connectionString));
+
+            services.AddScoped<IVoteService, VoteService>();
 
         }
 
