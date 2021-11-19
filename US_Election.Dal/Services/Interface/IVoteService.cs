@@ -10,5 +10,7 @@ namespace US_Election.Dal.Services.Interface
     {
         [System.Obsolete]
         List<Models.Vote> UploadVote(IFormFile file, IHostingEnvironment hostingEnvironment);
+
+        List<Models.Vote> GetAll();
     }
 }

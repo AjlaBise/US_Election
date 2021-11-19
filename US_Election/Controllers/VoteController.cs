@@ -20,7 +20,23 @@ namespace US_Election.Controllers
             _service = service;
         }
 
+        [HttpGet]
+        [Route("getVotes")]
+        public List<Dal.Models.Vote> GetAll()
+        {
+            try
+            {
+                return _service.GetAll();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         [HttpPost]
+        [Route("postVotes")]
         public List<Dal.Models.Vote> UploadFile(IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
         {
             try
