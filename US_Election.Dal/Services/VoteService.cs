@@ -3,6 +3,7 @@ using CsvHelper;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -24,11 +25,16 @@ namespace US_Election.Dal.Services
             _mapper = mapper;
         }
 
+        public List<Models.Vote> GetAll()
+        {
+            var entity = _context.Votes.ToList();
+
+            return _mapper.Map<List<Models.Vote>>(entity);
+        }
+
         [Obsolete]
         public List<Models.Vote> UploadVote(IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
-        {
-            try
-            {
+        {                    
                 string path = hostingEnvironment.ContentRootPath + "\\files\\" + file.FileName;
                 using (FileStream fileStream = System.IO.File.Create(path))
                 {
@@ -37,16 +43,7 @@ namespace US_Election.Dal.Services
                 }
                 var listFile = this.ReadCreateCSV(file.FileName);
 
-                return _mapper.Map<List<Models.Vote>>(listFile);
-            }
-            catch (System.Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-
-            var list = _context.Votes.ToList();
-
-            return _mapper.Map<List<Models.Vote>>(list);
+                return _mapper.Map<List<Models.Vote>>(listFile);        
         }
 
         private List<Models.VoteUploadModal> ReadCreateCSV(string fileName)

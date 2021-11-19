@@ -20,3 +20,34 @@ span {
     margin-left: 47%;
     font-size: 25px;
 }
+
+.uploadDiv{
+    flex-direction: column;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-top: 3%;
+}
+
+.uploadInput{
+    color:blanchedalmond;
+    width: 10%;
+    height: 50px;
+}
+
+.uploadBtn{
+    width: 20%;
+    height: 40px;
+}
+
+.readData{
+    margin-top: 3%;
+    width: 60%;
+    height: 200px;
+    border: solid 2px wheat;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}

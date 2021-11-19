@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 using US_Election.Dal.Database;
 using US_Election.Dal.Services;
 using US_Election.Dal.Services.Interface;
@@ -35,7 +36,19 @@ namespace US_Election
             var connectionString = Configuration.GetConnectionString("usElection");
             services.AddDbContext<US_ElectionDbContext>(builder => builder.UseSqlServer(connectionString));
 
+            services.AddCors(options => options.AddPolicy("AllowAll", p =>
+                                                 p.WithOrigins("http://localhost:3000/")
+                                                 .WithMethods("POST", "GET", "PUT", "DELETE")
+                                                 .WithHeaders(HeaderNames.ContentType)
+                                                 .AllowAnyOrigin()
+                                                                    .AllowAnyMethod()
+                                                                     .AllowAnyHeader()
+                                                                  )); 
+
+
             services.AddScoped<IVoteService, VoteService>();
+            services.AddScoped<IElectorateService, ElectorateService>();
+
 
         }
 
@@ -46,6 +59,7 @@ namespace US_Election
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 
