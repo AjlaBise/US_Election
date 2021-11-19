@@ -7,6 +7,8 @@ namespace US_Election.Dal.Mapper
         public Mapper()
         {
             CreateMap<Database.Vote, Models.Vote>();
+
+            CreateMap<Models.VoteUploadModal, Database.Vote>();
         }
     }
 }

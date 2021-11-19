@@ -29,6 +29,18 @@
           "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "CsvHelper/27.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "[4.7.0]"
+        },
+        "compile": {
+          "lib/netstandard2.1/CsvHelper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/CsvHelper.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1996,6 +2008,30 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "CsvHelper/27.2.0": {
+      "sha512": "TvOda5RWz/KK5MDGIuEE5WxckPCO+cEmws1ZsLas+mSFZJSpHp/v6xl2o72PXr8NcOndKhR7k0wuLYQQ/1R9fQ==",
+      "type": "package",
+      "path": "csvhelper/27.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.27.2.0.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net5.0/CsvHelper.dll",
+        "lib/net5.0/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
@@ -6803,13 +6839,13 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1",
+      "CsvHelper >= 27.2.0",
       "Microsoft.AspNetCore.Mvc.Formatters.Json >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.21",
       "Microsoft.EntityFrameworkCore >= 3.1.21",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.21",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.21",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.21",
-      "Microsoft.Extensions.Configuration.Abstractions >= 3.1.21",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -6859,6 +6895,10 @@
             "target": "Package",
             "version": "[8.1.1, )"
           },
+          "CsvHelper": {
+            "target": "Package",
+            "version": "[27.2.0, )"
+          },
           "Microsoft.AspNetCore.Mvc.Formatters.Json": {
             "target": "Package",
             "version": "[2.2.0, )"
@@ -6884,10 +6924,6 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
-            "target": "Package",
-            "version": "[3.1.21, )"
-          },
-          "Microsoft.Extensions.Configuration.Abstractions": {
             "target": "Package",
             "version": "[3.1.21, )"
           },

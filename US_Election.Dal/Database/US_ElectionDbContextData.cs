@@ -67,42 +67,51 @@ namespace US_Election.Dal.Database
 
             #endregion
 
-            #region
+            #region Add Votes
             modelBuilder.Entity<Vote>().HasData(
                 new Vote
                 {
                     Id=1,
                     CandidateId=1,
                     ElectorateId=1,
-                    NumberOfVotes=4287
+                    NumberOfVotes=4287,
+                    OverrideFile = false
                 },
                  new Vote
                  {
                      Id = 2,
                      CandidateId = 2,
                      ElectorateId = 2,
-                     NumberOfVotes = 7287
+                     NumberOfVotes = 7287,
+                     OverrideFile = false
+
                  },
                   new Vote
                   {
                       Id = 3,
                       CandidateId = 3,
                       ElectorateId = 3,
-                      NumberOfVotes = 12547
+                      NumberOfVotes = 12547,
+                      OverrideFile = false
+
                   },
                    new Vote
                    {
                        Id = 4,
                        CandidateId = 4,
                        ElectorateId = 1,
-                       NumberOfVotes = 74287
+                       NumberOfVotes = 74287,
+                       OverrideFile = false
+
                    },
                     new Vote
                     {
                         Id = 5,
                         CandidateId = 1,
                         ElectorateId = 2,
-                        NumberOfVotes = 11287
+                        NumberOfVotes = 11287,
+                        OverrideFile = false
+
                     }
                 );
             #endregion

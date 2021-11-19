@@ -14,5 +14,7 @@ namespace US_Election.Dal.Database
         public int ElectorateId { get; set; }
 
         public int NumberOfVotes { get; set; }
+
+        public bool? OverrideFile { get; set; }
     }
 }
