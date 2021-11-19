@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using US_Election.Dal.Database;
 
 namespace US_Election.Dal.Migrations
 {
     [DbContext(typeof(US_ElectionDbContext))]
-    partial class US_ElectionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211119125502_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,40 +143,35 @@ namespace US_Election.Dal.Migrations
                             Id = 1,
                             CandidateId = 1,
                             ElectorateId = 1,
-                            NumberOfVotes = 4287,
-                            OverrideFile = false
+                            NumberOfVotes = 4287
                         },
                         new
                         {
                             Id = 2,
                             CandidateId = 2,
                             ElectorateId = 2,
-                            NumberOfVotes = 7287,
-                            OverrideFile = false
+                            NumberOfVotes = 7287
                         },
                         new
                         {
                             Id = 3,
                             CandidateId = 3,
                             ElectorateId = 3,
-                            NumberOfVotes = 12547,
-                            OverrideFile = false
+                            NumberOfVotes = 12547
                         },
                         new
                         {
                             Id = 4,
                             CandidateId = 4,
                             ElectorateId = 1,
-                            NumberOfVotes = 74287,
-                            OverrideFile = false
+                            NumberOfVotes = 74287
                         },
                         new
                         {
                             Id = 5,
                             CandidateId = 1,
                             ElectorateId = 2,
-                            NumberOfVotes = 11287,
-                            OverrideFile = false
+                            NumberOfVotes = 11287
                         });
                 });
 

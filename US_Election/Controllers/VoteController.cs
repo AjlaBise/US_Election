@@ -23,7 +23,16 @@ namespace US_Election.Controllers
         [HttpPost]
         public List<Dal.Models.Vote> UploadFile(IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
         {
-            return _service.UploadVote(file,hostingEnvironment);
+            try
+            {
+                return _service.UploadVote(file,hostingEnvironment);
+            }
+            catch (System.Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+
+            return null;
         }
     }
 }

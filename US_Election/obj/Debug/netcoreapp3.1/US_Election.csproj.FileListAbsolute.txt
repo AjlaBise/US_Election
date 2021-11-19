@@ -143,3 +143,7 @@ C:\Users\Ajla\Desktop\US_Election\US_Election\obj\Debug\netcoreapp3.1\US_Electio
 C:\Users\Ajla\Desktop\US_Election\US_Election\obj\Debug\netcoreapp3.1\US_Election.genruntimeconfig.cache
 C:\Users\Ajla\Desktop\US_Election\US_Election\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\Ajla\Desktop\US_Election\US_Election\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Ajla\Desktop\US_Election\US_Election\bin\Debug\netcoreapp3.1\CsvHelper.dll
+C:\Users\Ajla\Desktop\US_Election\US_Election\obj\Debug\netcoreapp3.1\US_Election.csproj.CoreCompileInputs.cache
+C:\Users\Ajla\Desktop\US_Election\US_Election\obj\Debug\netcoreapp3.1\US_Election.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Ajla\Desktop\US_Election\US_Election\obj\Debug\netcoreapp3.1\US_Election.MvcApplicationPartsAssemblyInfo.cache

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "uPdXvpws4tiU6ILVBojyWPVCgJSuA8FLfRtGayoVEdM6UgTi5r10qSH5disYdyD37PKvuUHfaHYYspcfys/oUw==",
+  "dgSpecHash": "EZhTNhIq2C+Ev6LW04lXNSWPXaWdj5XyfG3u/4ZEtkWCM2Vg105YsayStoEKSAhIw2evRHp1k5+sgxP/1yoUgQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ajla\\Desktop\\US_Election\\US_Election.Dal\\US_Election.Dal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ajla\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Ajla\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\Ajla\\.nuget\\packages\\csvhelper\\27.2.0\\csvhelper.27.2.0.nupkg.sha512",
     "C:\\Users\\Ajla\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Ajla\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Ajla\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
