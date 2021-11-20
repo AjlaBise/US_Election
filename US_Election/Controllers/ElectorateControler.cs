@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using US_Election.Dal.Services.Interface;
 
@@ -21,11 +19,11 @@ namespace US_Election.Controllers
 
         [HttpGet]
         [Route("getElectorate")]
-        public List<Dal.Models.Electorate> GetAll()
+        public async Task<List<Dal.Models.Electorate>> GetAll()
         {
             try
             {
-                return _service.GetAll();
+                return await _service.GetAll();
             }
             catch (Exception ex)
             {

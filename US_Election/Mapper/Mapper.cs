@@ -7,15 +7,12 @@ namespace US_Election.Dal.Mapper
     {
         public Mapper()
         {
-
             AutoMapperShared shared = new AutoMapperShared();
 
             CreateMap<Database.Vote, Models.Vote>().ForMember(dest => dest.CandidateName,
                 opt => opt.MapFrom(src => shared.MapIdToName(src.CandidateId)));
 
             CreateMap<Database.Electorate, Models.Electorate>();
-            CreateMap<Database.Candidate, Models.Candidate>();
-
             CreateMap<Models.VoteUploadModal, Database.Vote>();
         }
     }
