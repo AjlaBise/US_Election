@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using US_Election.Dal.Models;
 using US_Election.Dal.Services.Interface;
 
 namespace US_Election.Controllers
@@ -37,11 +38,11 @@ namespace US_Election.Controllers
 
         [HttpPost]
         [Route("postVotes")]
-        public List<Dal.Models.Vote> UploadFile(IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
+        public List<Dal.Models.Vote> UploadFile([FromForm] FileModel file)
         {
             try
             {
-                return _service.UploadVote(file,hostingEnvironment);
+                return _service.UploadVote(file);
             }
             catch (System.Exception ex)
             {

@@ -10,6 +10,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using US_Election.Dal.Database;
+using US_Election.Dal.Models;
 using US_Election.Dal.Services.Interface;
 
 namespace US_Election.Dal.Services
@@ -33,17 +34,18 @@ namespace US_Election.Dal.Services
         }
 
         [Obsolete]
-        public List<Models.Vote> UploadVote(IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
-        {                    
-                string path = hostingEnvironment.ContentRootPath + "\\files\\" + file.FileName;
-                using (FileStream fileStream = System.IO.File.Create(path))
-                {
-                    file.CopyTo(fileStream);
-                    fileStream.Flush();
-                }
-                var listFile = this.ReadCreateCSV(file.FileName);
+        public List<Models.Vote> UploadVote(FileModel file)
+        {      
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
+            
+            using(Stream stream = new FileStream(path, FileMode.Create))
+            {
+                file.FormFile.CopyTo(stream);
+            }
 
-                return _mapper.Map<List<Models.Vote>>(listFile);        
+            var listFile = this.ReadCreateCSV(file.FileName);
+
+            return _mapper.Map<List<Models.Vote>>(listFile);
         }
 
         private List<Models.VoteUploadModal> ReadCreateCSV(string fileName)
