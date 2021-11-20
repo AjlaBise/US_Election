@@ -106,7 +106,7 @@ namespace US_Election.Dal.Services
                     }
                     else
                     {
-                       Console.WriteLine("err")
+                        Console.WriteLine("err");
                     }
                 }
             }
