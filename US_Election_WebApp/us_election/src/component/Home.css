@@ -41,8 +41,8 @@ margin-top: 3%;
 }
 
 .readData{
-    margin-top: 3%;
-    width: 60%;
+    margin-top: "20px";
+    width: 40%;
     height: 200px;
     border: solid 2px wheat;
     border-radius: 5px;
@@ -50,4 +50,14 @@ margin-top: 3%;
     align-items: center;
     justify-content: center;
     color: white;
+    font-family:'Times New Roman', Times, serif
+}
+
+.electrateDiv{
+    width:100%;
+    display: flex;
+    margin-top: -3%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
