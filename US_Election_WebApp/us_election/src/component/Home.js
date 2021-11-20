@@ -13,23 +13,20 @@ const Home = () => {
   };
 
   const uploadFile = async (e) => {
-    console.log(file);
     const formData = new FormData();
     formData.append("formFile", file);
-    formData.append("fileName", fileName);
+    formData.append("fileName", "Votes");
     try {
       const res = await axios.post(
         `https://localhost:5001/api/Vote/postVotes`,
         formData
       );
-      console.log("res", res.data);
       setFile(res.data);
     } catch (ex) {
       console.log(ex);
     }
   };
 
-  console.log("formData", file);
   return (
     <div>
       <p>Presidential election results</p>
