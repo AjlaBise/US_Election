@@ -30,7 +30,6 @@ const Home = () => {
 
   const checkExstension = () => {
     const extension = file.name.split(".")[1];
-
     if (extension !== "csv") alert("Please select correct format of the file!");
   };
 
@@ -43,9 +42,14 @@ const Home = () => {
       <div className="uploadDiv">
         <input className="uploadInput" type="file" onChange={saveFile} />
         <button
+          disabled={!file}
           className="uploadBtn"
           type="submit"
-          onClick={(checkExstension, uploadFile)}
+          onClick={() => {
+            checkExstension();
+            uploadFile();
+            window.location.reload(false);
+          }}
           value="upload"
         >
           Upload

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using US_Election.Dal.Database;
 using US_Election.Dal.Models;
 using US_Election.Dal.Services.Interface;
@@ -26,36 +27,38 @@ namespace US_Election.Dal.Services
             _mapper = mapper;
         }
 
-        public List<Models.Vote> GetAll()
+        public async Task<List<Models.Vote>> GetAll()
         {
-            var entity = _context.Votes.ToList();
+            var entity = await _context.Votes.ToListAsync();
 
             return _mapper.Map<List<Models.Vote>>(entity);
         }
 
         [Obsolete]
-        public List<Models.Vote> UploadVote(FileModel file)
+        public Models.Vote UploadVote(FileModel file)
         {
-           
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
-                if(file.FileName.EndsWith(".csv"))
-                {
-                    using (Stream stream = new FileStream(path, FileMode.Create))
-                    {
-                        file.FormFile.CopyTo(stream);
-                    }
-                }
-                else
-                {
-                    var Error = new Database.Exception();
-                    Error.ErrorMessage = "Please select correct format of the file!";
-                    _context.Exceptions.Add(Error);
-                    _context.SaveChanges();
-                }
+            string path =  Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
 
-                var listFile = this.ReadCreateCSV(file.FileName);
+            string ext = Path.GetExtension(file.FormFile.FileName);
 
-                return _mapper.Map<List<Models.Vote>>(listFile);
+            if (ext == ".csv")
+            {
+                using (Stream stream = new FileStream(path, FileMode.Create))
+                {
+                    file.FormFile.CopyTo(stream);
+                }
+            }
+            else
+            {
+                var Error = new Database.Exception();
+                Error.ErrorMessage = "Please select correct format of the file!";
+                _context.Exceptions.Add(Error);
+                _context.SaveChanges();
+            }
+
+           ReadCreateCSV(file.FileName);
+
+            return null;
         }
 
         private List<Models.VoteUploadModal> ReadCreateCSV(string fileName)
@@ -90,12 +93,12 @@ namespace US_Election.Dal.Services
                 foreach (var item in newVotes)
                 {
                     var candidateId = _context.Candidates.FirstOrDefault(e => e.Code == item.CandidateCode).Id;
-                    var electorateId = _context.Electorates.FirstOrDefault(x=> x.Name == item.Electorate).Id;
-                    
+                    var electorateId = _context.Electorates.FirstOrDefault(x => x.Name == item.Electorate).Id;
+
                     var votes = _context.Votes.Where(x => x.CandidateId == candidateId &&
                     x.ElectorateId == electorateId).FirstOrDefault();
 
-                    if(votes != null)
+                    if (votes != null)
                     {
                         votes.NumberOfVotes = int.Parse(item.numberOfVotes);
                         votes.OverrideFile = true;

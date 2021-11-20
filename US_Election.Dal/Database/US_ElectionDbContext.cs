@@ -7,6 +7,8 @@ namespace US_Election.Dal.Database
 {
     public partial class US_ElectionDbContext : DbContext
     {
+        public US_ElectionDbContext() { }
+
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Electorate> Electorates { get; set; }
         public DbSet<Vote> Votes { get; set; }

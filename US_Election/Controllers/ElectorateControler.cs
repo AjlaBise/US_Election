@@ -29,7 +29,6 @@ namespace US_Election.Controllers
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
