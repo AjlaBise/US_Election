@@ -105,6 +105,21 @@ namespace US_Election.Dal.Migrations
                         });
                 });
 
+            modelBuilder.Entity("US_Election.Dal.Database.Exception", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ErrorMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Exceptions");
+                });
+
             modelBuilder.Entity("US_Election.Dal.Database.Vote", b =>
                 {
                     b.Property<int>("Id")

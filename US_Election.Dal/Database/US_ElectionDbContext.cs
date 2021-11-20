@@ -10,6 +10,7 @@ namespace US_Election.Dal.Database
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Electorate> Electorates { get; set; }
         public DbSet<Vote> Votes { get; set; }
+        public DbSet<Exception> Exceptions { get; set; }
 
 
         public US_ElectionDbContext(DbContextOptions<US_ElectionDbContext> options) : base(options)

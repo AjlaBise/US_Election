@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using US_Election.Dal.Database;
 using US_Election.Dal.Models;
 using US_Election.Dal.Services.Interface;
 
@@ -25,15 +26,7 @@ namespace US_Election.Controllers
         [Route("getVotes")]
         public List<Dal.Models.Vote> GetAll()
         {
-            try
-            {
                 return _service.GetAll();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
         }
 
         [HttpPost]

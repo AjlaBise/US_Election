@@ -33,43 +33,29 @@ const Vote = () => {
     <div className="uploadDiv">
       {dataElectorate.map((dataEntry) => {
         return (
-          <div
-            key={dataEntry.id}
-            style={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
+          <div key={dataEntry.id} className="electrateDiv">
             <p style={{ color: "white" }}>{dataEntry.name}</p>
             <div className="readData">
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th style={{ paddingLeft: "35px" }}>Name</th>
-                    <th style={{ paddingLeft: "35px" }}>Votes</th>
-                    <th style={{ paddingLeft: "35px" }}>Parcentage</th>
-                    <th style={{ paddingLeft: "35px" }}>Error</th>
+                    <th>Name</th>
+                    <th>Votes</th>
+                    <th>Parcentage</th>
+                    <th>Error</th>
                   </tr>
                 </thead>
                 {data.map((dataVotes) => {
                   if (dataEntry.id === dataVotes.electorateId) {
+                    console.log("dataa", dataVotes);
                     return (
                       <>
                         <tbody>
                           <tr>
-                            <td style={{ paddingLeft: "35px" }}>
-                              {dataVotes.candidateId}
-                            </td>
-                            <td style={{ paddingLeft: "35px" }}>
-                              {dataVotes.numberOfVotes}
-                            </td>
-                            <td style={{ paddingLeft: "35px" }}>sum</td>
-                            <td style={{ paddingLeft: "35px" }}>
-                              {dataVotes.overrideFile ? "Error" : "-"}
-                            </td>
+                            <td>{dataVotes.candidateId}</td>
+                            <td>{dataVotes.numberOfVotes}</td>
+                            <td>sum</td>
+                            <td>{dataVotes.overrideFile ? "Error" : "-"}</td>
                           </tr>
                         </tbody>
                       </>

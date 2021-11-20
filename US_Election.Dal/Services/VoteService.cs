@@ -35,17 +35,27 @@ namespace US_Election.Dal.Services
 
         [Obsolete]
         public List<Models.Vote> UploadVote(FileModel file)
-        {      
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
-            
-            using(Stream stream = new FileStream(path, FileMode.Create))
-            {
-                file.FormFile.CopyTo(stream);
-            }
+        {
+           
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
+                if(file.FileName.EndsWith(".csv"))
+                {
+                    using (Stream stream = new FileStream(path, FileMode.Create))
+                    {
+                        file.FormFile.CopyTo(stream);
+                    }
+                }
+                else
+                {
+                    var Error = new Database.Exception();
+                    Error.ErrorMessage = "Please select correct format of the file!";
+                    _context.Exceptions.Add(Error);
+                    _context.SaveChanges();
+                }
 
-            var listFile = this.ReadCreateCSV(file.FileName);
+                var listFile = this.ReadCreateCSV(file.FileName);
 
-            return _mapper.Map<List<Models.Vote>>(listFile);
+                return _mapper.Map<List<Models.Vote>>(listFile);
         }
 
         private List<Models.VoteUploadModal> ReadCreateCSV(string fileName)
@@ -88,12 +98,13 @@ namespace US_Election.Dal.Services
                     if(votes != null)
                     {
                         votes.NumberOfVotes = int.Parse(item.numberOfVotes);
+                        votes.OverrideFile = true;
 
                         _context.SaveChanges();
                     }
                     else
                     {
-                        throw new Exception("Takav zapis ne postoji");
+                        Console.WriteLine("err");
                     }
                 }
             }
