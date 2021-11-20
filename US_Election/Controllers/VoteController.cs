@@ -24,14 +24,21 @@ namespace US_Election.Controllers
 
         [HttpGet]
         [Route("getVotes")]
-        public List<Dal.Models.Vote> GetAll()
+        public async Task<List<Dal.Models.Vote>> GetAll()
         {
-                return _service.GetAll();
+            try
+            {
+                return await _service.GetAll();
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
         }
 
         [HttpPost]
         [Route("postVotes")]
-        public List<Dal.Models.Vote> UploadFile([FromForm] FileModel file)
+        public Dal.Models.Vote UploadFile([FromForm] FileModel file)
         {
             try
             {
@@ -39,10 +46,9 @@ namespace US_Election.Controllers
             }
             catch (System.Exception ex)
             {
-                Console.WriteLine(ex);
+                throw ex;
             }
 
-            return null;
         }
     }
 }

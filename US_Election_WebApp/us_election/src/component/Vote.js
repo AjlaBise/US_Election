@@ -52,7 +52,7 @@ const Vote = () => {
                       <>
                         <tbody>
                           <tr>
-                            <td>{dataVotes.candidateId}</td>
+                            <td>{dataVotes.candidateName}</td>
                             <td>{dataVotes.numberOfVotes}</td>
                             <td>sum</td>
                             <td>{dataVotes.overrideFile ? "Error" : "-"}</td>
