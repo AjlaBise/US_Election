@@ -9,11 +9,9 @@ namespace US_Election.Dal.Models
     {
         public int Id { get; set; }
 
-        public Candidate Candidate { get; set; }
+        public string CandidateName { get; set; }
 
         public int CandidateId { get; set; }
-
-        public Electorate Electorate { get; set; }
 
         public int ElectorateId { get; set; }
 

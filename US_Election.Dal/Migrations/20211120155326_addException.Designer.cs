@@ -10,8 +10,8 @@ using US_Election.Dal.Database;
 namespace US_Election.Dal.Migrations
 {
     [DbContext(typeof(US_ElectionDbContext))]
-    [Migration("20211119125502_test")]
-    partial class test
+    [Migration("20211120155326_addException")]
+    partial class addException
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,6 +107,21 @@ namespace US_Election.Dal.Migrations
                         });
                 });
 
+            modelBuilder.Entity("US_Election.Dal.Database.Exception", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ErrorMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Exceptions");
+                });
+
             modelBuilder.Entity("US_Election.Dal.Database.Vote", b =>
                 {
                     b.Property<int>("Id")
@@ -143,35 +158,120 @@ namespace US_Election.Dal.Migrations
                             Id = 1,
                             CandidateId = 1,
                             ElectorateId = 1,
-                            NumberOfVotes = 4287
+                            NumberOfVotes = 0,
+                            OverrideFile = false
                         },
                         new
                         {
                             Id = 2,
                             CandidateId = 2,
-                            ElectorateId = 2,
-                            NumberOfVotes = 7287
+                            ElectorateId = 1,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
                         },
                         new
                         {
                             Id = 3,
                             CandidateId = 3,
-                            ElectorateId = 3,
-                            NumberOfVotes = 12547
+                            ElectorateId = 1,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
                         },
                         new
                         {
                             Id = 4,
                             CandidateId = 4,
                             ElectorateId = 1,
-                            NumberOfVotes = 74287
+                            NumberOfVotes = 0,
+                            OverrideFile = false
                         },
                         new
                         {
                             Id = 5,
+                            CandidateId = 5,
+                            ElectorateId = 1,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 6,
                             CandidateId = 1,
                             ElectorateId = 2,
-                            NumberOfVotes = 11287
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CandidateId = 2,
+                            ElectorateId = 2,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CandidateId = 3,
+                            ElectorateId = 2,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CandidateId = 4,
+                            ElectorateId = 2,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CandidateId = 5,
+                            ElectorateId = 2,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CandidateId = 1,
+                            ElectorateId = 3,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CandidateId = 2,
+                            ElectorateId = 3,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CandidateId = 3,
+                            ElectorateId = 3,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CandidateId = 4,
+                            ElectorateId = 3,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CandidateId = 5,
+                            ElectorateId = 3,
+                            NumberOfVotes = 0,
+                            OverrideFile = false
                         });
                 });
 

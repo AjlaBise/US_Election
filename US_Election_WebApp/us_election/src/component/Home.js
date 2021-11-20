@@ -5,7 +5,7 @@ import "./Home.css";
 
 const Home = () => {
   const [file, setFile] = useState();
-  const [fileName, setFileName] = useState();
+  const [fileName, setFileName] = useState("votes");
 
   const saveFile = (e) => {
     setFile(e.target.files[0]);
@@ -15,7 +15,8 @@ const Home = () => {
   const uploadFile = async (e) => {
     const formData = new FormData();
     formData.append("formFile", file);
-    formData.append("fileName", "Votes");
+    formData.append("fileName", fileName);
+
     try {
       const res = await axios.post(
         `https://localhost:5001/api/Vote/postVotes`,
@@ -25,6 +26,12 @@ const Home = () => {
     } catch (ex) {
       console.log(ex);
     }
+  };
+
+  const checkExstension = () => {
+    const extension = file.name.split(".")[1];
+
+    if (extension !== "csv") alert("Please select correct format of the file!");
   };
 
   return (
@@ -38,7 +45,7 @@ const Home = () => {
         <button
           className="uploadBtn"
           type="submit"
-          onClick={uploadFile}
+          onClick={(checkExstension, uploadFile)}
           value="upload"
         >
           Upload

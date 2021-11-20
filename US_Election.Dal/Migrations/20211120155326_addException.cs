@@ -2,7 +2,7 @@
 
 namespace US_Election.Dal.Migrations
 {
-    public partial class Initial : Migration
+    public partial class addException : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,6 +34,19 @@ namespace US_Election.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Exceptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ErrorMessage = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exceptions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Vote",
                 columns: table => new
                 {
@@ -41,7 +54,8 @@ namespace US_Election.Dal.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CandidateId = table.Column<int>(nullable: false),
                     ElectorateId = table.Column<int>(nullable: false),
-                    NumberOfVotes = table.Column<int>(nullable: false)
+                    NumberOfVotes = table.Column<int>(nullable: false),
+                    OverrideFile = table.Column<bool>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,14 +98,24 @@ namespace US_Election.Dal.Migrations
 
             migrationBuilder.InsertData(
                 table: "Vote",
-                columns: new[] { "Id", "CandidateId", "ElectorateId", "NumberOfVotes" },
+                columns: new[] { "Id", "CandidateId", "ElectorateId", "NumberOfVotes", "OverrideFile" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, 4287 },
-                    { 4, 4, 1, 74287 },
-                    { 2, 2, 2, 7287 },
-                    { 5, 1, 2, 11287 },
-                    { 3, 3, 3, 12547 }
+                    { 1, 1, 1, 0, false },
+                    { 2, 2, 1, 0, false },
+                    { 3, 3, 1, 0, false },
+                    { 4, 4, 1, 0, false },
+                    { 5, 5, 1, 0, false },
+                    { 6, 1, 2, 0, false },
+                    { 7, 2, 2, 0, false },
+                    { 8, 3, 2, 0, false },
+                    { 9, 4, 2, 0, false },
+                    { 10, 5, 2, 0, false },
+                    { 11, 1, 3, 0, false },
+                    { 12, 2, 3, 0, false },
+                    { 13, 3, 3, 0, false },
+                    { 14, 4, 3, 0, false },
+                    { 15, 5, 3, 0, false }
                 });
 
             migrationBuilder.CreateIndex(
@@ -107,6 +131,9 @@ namespace US_Election.Dal.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Exceptions");
+
             migrationBuilder.DropTable(
                 name: "Vote");
 
