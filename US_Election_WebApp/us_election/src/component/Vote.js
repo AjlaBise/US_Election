@@ -39,10 +39,10 @@ const Vote = () => {
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Votes</th>
-                    <th>Parcentage</th>
-                    <th>Error</th>
+                    <th style={{ paddingLeft: "20px" }}>Name</th>
+                    <th style={{ paddingLeft: "20px" }}>Votes</th>
+                    <th style={{ paddingLeft: "20px" }}>Parcentage</th>
+                    <th style={{ paddingLeft: "20px" }}>Error</th>
                   </tr>
                 </thead>
                 {data.map((dataVotes) => {
@@ -52,10 +52,38 @@ const Vote = () => {
                       <>
                         <tbody>
                           <tr>
-                            <td>{dataVotes.candidateName}</td>
-                            <td>{dataVotes.numberOfVotes}</td>
-                            <td>sum</td>
-                            <td>{dataVotes.overrideFile ? "Error" : "-"}</td>
+                            <td
+                              style={{
+                                paddingLeft: "20px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              {dataVotes.candidateName}
+                            </td>
+                            <td
+                              style={{
+                                paddingLeft: "20px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              {dataVotes.numberOfVotes}
+                            </td>
+                            <td
+                              style={{
+                                paddingLeft: "20px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              sum
+                            </td>
+                            <td
+                              style={{
+                                paddingLeft: "20px",
+                                paddingTop: "10px",
+                              }}
+                            >
+                              {dataVotes.overrideFile ? "Error" : "-"}
+                            </td>
                           </tr>
                         </tbody>
                       </>
