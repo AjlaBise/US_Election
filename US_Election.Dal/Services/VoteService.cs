@@ -30,7 +30,6 @@ namespace US_Election.Dal.Services
         {
             var entity = _context.Votes.ToList();
 
-
             return _mapper.Map<List<Models.Vote>>(entity);
         }
 

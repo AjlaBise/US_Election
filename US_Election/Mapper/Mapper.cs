@@ -8,7 +8,7 @@ namespace US_Election.Dal.Mapper
         {
             CreateMap<Database.Vote, Models.Vote>();
             CreateMap<Database.Electorate, Models.Electorate>();
-
+            CreateMap<Database.Candidate, Models.Candidate>();
 
             CreateMap<Models.VoteUploadModal, Database.Vote>();
         }

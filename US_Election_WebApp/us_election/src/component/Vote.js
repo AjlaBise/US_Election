@@ -18,12 +18,14 @@ const Vote = () => {
       .get(`https://localhost:5001/api/ElectorateControler/getElectorate`)
       .then((res) => {
         setDataElectorate(res.data);
+        console.log(res);
       });
   };
 
   const getDataFrom = () => {
     axios.get(`https://localhost:5001/api/Vote/getVotes`).then((res) => {
       setData(res.data);
+      console.log(res);
     });
   };
 
@@ -31,37 +33,43 @@ const Vote = () => {
     <div className="uploadDiv">
       {dataElectorate.map((dataEntry) => {
         return (
-          <div key={dataEntry.id} className="electrateDiv">
+          <div
+            key={dataEntry.id}
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
             <p style={{ color: "white" }}>{dataEntry.name}</p>
             <div className="readData">
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Votes</th>
-                    <th>Parcentage</th>
-                    <th>Error</th>
+                    <th style={{ paddingLeft: "35px" }}>Name</th>
+                    <th style={{ paddingLeft: "35px" }}>Votes</th>
+                    <th style={{ paddingLeft: "35px" }}>Parcentage</th>
+                    <th style={{ paddingLeft: "35px" }}>Error</th>
                   </tr>
                 </thead>
                 {data.map((dataVotes) => {
                   if (dataEntry.id === dataVotes.electorateId) {
-                    const sum = data.reduce(
-                      // (a, v) => (a = a + v.numberOfVotes),
-                      (a, v) => {
-                        if (dataEntry.id === dataVotes.electorateId) {
-                          return a + v.numberOfVotes;
-                        }
-                      },
-                      0
-                    );
                     return (
                       <>
                         <tbody>
                           <tr>
-                            <td>{dataVotes.candidateId}</td>
-                            <td>{dataVotes.numberOfVotes}</td>
-                            <td>{sum}</td>
-                            <td>{dataVotes.overrideFile ? "Error" : "-"}</td>
+                            <td style={{ paddingLeft: "35px" }}>
+                              {dataVotes.candidateId}
+                            </td>
+                            <td style={{ paddingLeft: "35px" }}>
+                              {dataVotes.numberOfVotes}
+                            </td>
+                            <td style={{ paddingLeft: "35px" }}>sum</td>
+                            <td style={{ paddingLeft: "35px" }}>
+                              {dataVotes.overrideFile ? "Error" : "-"}
+                            </td>
                           </tr>
                         </tbody>
                       </>
