@@ -18,14 +18,12 @@ const Vote = () => {
       .get(`https://localhost:5001/api/ElectorateControler/getElectorate`)
       .then((res) => {
         setDataElectorate(res.data);
-        console.log(res);
       });
   };
 
   const getDataFrom = () => {
     axios.get(`https://localhost:5001/api/Vote/getVotes`).then((res) => {
       setData(res.data);
-      console.log(res);
     });
   };
 
@@ -33,47 +31,43 @@ const Vote = () => {
     <div className="uploadDiv">
       {dataElectorate.map((dataEntry) => {
         return (
-          <div
-            key={dataEntry.id}
-            style={{
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
+          <div key={dataEntry.id} className="electrateDiv">
             <p style={{ color: "white" }}>{dataEntry.name}</p>
             <div className="readData">
               <Table striped bordered hover>
                 <thead>
                   <tr>
-                    <th>#</th>
                     <th>Name</th>
                     <th>Votes</th>
                     <th>Parcentage</th>
                     <th>Error</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td colSpan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
+                {data.map((dataVotes) => {
+                  if (dataEntry.id === dataVotes.electorateId) {
+                    const sum = data.reduce(
+                      // (a, v) => (a = a + v.numberOfVotes),
+                      (a, v) => {
+                        if (dataEntry.id === dataVotes.electorateId) {
+                          return a + v.numberOfVotes;
+                        }
+                      },
+                      0
+                    );
+                    return (
+                      <>
+                        <tbody>
+                          <tr>
+                            <td>{dataVotes.candidateId}</td>
+                            <td>{dataVotes.numberOfVotes}</td>
+                            <td>{sum}</td>
+                            <td>{dataVotes.overrideFile ? "Error" : "-"}</td>
+                          </tr>
+                        </tbody>
+                      </>
+                    );
+                  }
+                })}
               </Table>
             </div>
           </div>
