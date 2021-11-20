@@ -2,7 +2,7 @@
 
 namespace US_Election.Dal.Migrations
 {
-    public partial class addException : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,16 +34,16 @@ namespace US_Election.Dal.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exceptions",
+                name: "Exception",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ErrorMessage = table.Column<string>(nullable: true)
+                    ErrorMessage = table.Column<string>(maxLength: 100, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Exceptions", x => x.Id);
+                    table.PrimaryKey("PK_Exception", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -132,7 +132,7 @@ namespace US_Election.Dal.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Exceptions");
+                name: "Exception");
 
             migrationBuilder.DropTable(
                 name: "Vote");

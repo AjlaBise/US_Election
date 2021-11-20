@@ -48,8 +48,6 @@ namespace US_Election
 
             services.AddScoped<IVoteService, VoteService>();
             services.AddScoped<IElectorateService, ElectorateService>();
-            services.AddScoped<ICandidateService, CandidateService>();
-
 
 
         }

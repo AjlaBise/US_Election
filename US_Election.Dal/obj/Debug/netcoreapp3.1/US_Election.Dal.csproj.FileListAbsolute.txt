@@ -15,10 +15,10 @@ C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\bin\Debug\netcoreapp3.1\US_Ele
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\bin\Debug\netcoreapp3.1\US_Election.Dal.runtimeconfig.dev.json
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\bin\Debug\netcoreapp3.1\US_Election.Dal.dll
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\bin\Debug\netcoreapp3.1\US_Election.Dal.pdb
-C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.csprojAssemblyReference.cache
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.AssemblyInfoInputs.cache
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.AssemblyInfo.cs
+C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.csproj.CoreCompileInputs.cache
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.dll
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.pdb
 C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.genruntimeconfig.cache
-C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.csproj.CoreCompileInputs.cache
+C:\Users\Ajla\Desktop\US_Election\US_Election.Dal\obj\Debug\netcoreapp3.1\US_Election.Dal.csprojAssemblyReference.cache

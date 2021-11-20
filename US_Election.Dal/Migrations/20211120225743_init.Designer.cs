@@ -10,8 +10,8 @@ using US_Election.Dal.Database;
 namespace US_Election.Dal.Migrations
 {
     [DbContext(typeof(US_ElectionDbContext))]
-    [Migration("20211120155326_addException")]
-    partial class addException
+    [Migration("20211120225743_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -115,11 +115,12 @@ namespace US_Election.Dal.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ErrorMessage")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
-                    b.ToTable("Exceptions");
+                    b.ToTable("Exception");
                 });
 
             modelBuilder.Entity("US_Election.Dal.Database.Vote", b =>

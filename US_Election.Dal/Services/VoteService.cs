@@ -33,11 +33,10 @@ namespace US_Election.Dal.Services
 
             return _mapper.Map<List<Models.Vote>>(entity);
         }
-
         [Obsolete]
         public Models.Vote UploadVote(FileModel file)
         {
-            string path =  Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
 
             string ext = Path.GetExtension(file.FormFile.FileName);
 
@@ -56,7 +55,7 @@ namespace US_Election.Dal.Services
                 _context.SaveChanges();
             }
 
-           ReadCreateCSV(file.FileName);
+            ReadCreateCSV(file.FileName);
 
             return null;
         }
@@ -107,7 +106,7 @@ namespace US_Election.Dal.Services
                     }
                     else
                     {
-                        Console.WriteLine("err");
+                       Console.WriteLine("err")
                     }
                 }
             }

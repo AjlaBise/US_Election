@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 using US_Election.Dal.Database;
-using US_Election.Dal.Models;
 using US_Election.Dal.Services.Interface;
 
 namespace US_Election.Dal.Services
@@ -20,9 +19,9 @@ namespace US_Election.Dal.Services
             _mapper = mapper;
         }
 
-       public List<Models.Electorate> GetAll()
+       public async Task<List<Models.Electorate>> GetAll()
         {
-            var entity = _context.Electorates.ToList();
+            var entity = await _context.Electorates.ToListAsync();
 
             return _mapper.Map<List<Models.Electorate>>(entity);
         }

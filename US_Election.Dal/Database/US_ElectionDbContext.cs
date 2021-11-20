@@ -47,6 +47,15 @@ namespace US_Election.Dal.Database
 
             });
 
+            modelBuilder.Entity<Exception>(entity =>
+            {
+                entity.ToTable("Exception");
+
+                entity.Property(e => e.ErrorMessage)
+                .HasMaxLength(100);
+
+            });
+
             modelBuilder.Entity<Vote>(entity =>
             {
                 entity.ToTable("Vote");
