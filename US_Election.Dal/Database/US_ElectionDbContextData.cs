@@ -201,8 +201,6 @@ namespace US_Election.Dal.Database
                         OverrideFile = false
 
                     }
-
-
                 );
             #endregion
         }
