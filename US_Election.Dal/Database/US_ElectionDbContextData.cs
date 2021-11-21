@@ -51,16 +51,16 @@ namespace US_Election.Dal.Database
                    Id = 1,
                    Name = "New York"
                },
-                 new Electorate
-                 {
-                     Id = 2,
-                     Name = "Washington"
-                 },
-                   new Electorate
-                   {
-                       Id = 3,
-                       Name = "Texas"
-                   }
+               new Electorate
+               {
+                   Id = 2,
+                   Name = "Washington"
+               },
+               new Electorate
+               {
+                   Id = 3,
+                   Name = "Texas"
+               }
                );
 
             #endregion

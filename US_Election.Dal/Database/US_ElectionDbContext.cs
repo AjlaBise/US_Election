@@ -23,6 +23,7 @@ namespace US_Election.Dal.Database
                 optionsBuilder.UseSqlServer("Server=.;Initial Catalog=usElection;Integrated Security = true");
             }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Candidate>(entity =>

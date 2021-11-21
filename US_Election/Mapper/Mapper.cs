@@ -31,7 +31,7 @@ namespace US_Election.Dal.Mapper
             return candidate.Name;
         }
 
-        public double MapParcentange(int electorateId, int candidateId)
+        public float MapParcentange(int electorateId, int candidateId)
         {
             US_ElectionDbContext _context = new US_ElectionDbContext();
 
@@ -39,7 +39,11 @@ namespace US_Election.Dal.Mapper
 
             var candidateVotes = _context.Votes.FirstOrDefault(x => x.CandidateId == candidateId).NumberOfVotes;
 
-            return ((double)candidateVotes / (double)sumVotes) * 100.00;
+            if (sumVotes == 0 || candidateVotes == 0)
+            {
+                return 0;
+            }
+                return (float)((candidateVotes / sumVotes) * 100.00);           
         }
     }
 }

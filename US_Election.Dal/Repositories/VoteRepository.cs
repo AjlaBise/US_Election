@@ -28,7 +28,9 @@ namespace US_Election.Dal.Services
 
         public async Task Update(string candidateCode, int electorateId, int numberOfVotes)
         {
-            var vote = await _context.Votes.FirstOrDefaultAsync(x => x.Candidate.Code == candidateCode && x.ElectorateId == electorateId);
+            
+            var code = _context.Candidates.Where(x => x.Code == candidateCode).FirstOrDefault();
+            var vote = await _context.Votes.FirstOrDefaultAsync(x => x.Candidate.Id == code.Id && x.ElectorateId == electorateId);
         
             if (vote != null)
             {
