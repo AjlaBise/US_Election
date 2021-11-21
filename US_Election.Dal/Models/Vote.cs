@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using US_Election.Dal.Database;
-
-namespace US_Election.Dal.Models
+﻿namespace US_Election.Dal.Models
 {
     public class Vote
     {

@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +20,6 @@ namespace US_Election
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSwaggerGen();
@@ -38,21 +31,16 @@ namespace US_Election
 
             services.AddCors(options => options.AddPolicy("AllowAll", p =>
                                                  p.WithOrigins("http://localhost:3000/")
-                                                 .WithMethods("POST", "GET", "PUT", "DELETE")
-                                                 .WithHeaders(HeaderNames.ContentType)
-                                                 .AllowAnyOrigin()
-                                                                    .AllowAnyMethod()
-                                                                     .AllowAnyHeader()
-                                                                  )); 
-
+                                                    .WithMethods("POST", "GET", "PUT", "DELETE")
+                                                    .WithHeaders(HeaderNames.ContentType)
+                                                    .AllowAnyOrigin()
+                                                    .AllowAnyMethod()
+                                                    .AllowAnyHeader())); 
 
             services.AddScoped<IVoteService, VoteService>();
             services.AddScoped<IElectorateService, ElectorateService>();
-
-
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

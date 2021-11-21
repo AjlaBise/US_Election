@@ -1,5 +1,4 @@
-﻿
-namespace US_Election.Dal.Database
+﻿namespace US_Election.Dal.Database
 {
     public class Exception
     {

@@ -1,11 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using US_Election.Dal.Database;
 using US_Election.Dal.Models;
 using US_Election.Dal.Services.Interface;
 
@@ -48,7 +43,6 @@ namespace US_Election.Controllers
             {
                 throw ex;
             }
-
         }
     }
 }
