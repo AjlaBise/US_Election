@@ -71,7 +71,9 @@ const Vote = () => {
                                 paddingTop: "10px",
                               }}
                             >
-                              15878
+                              {/* {Math.round(dataVotes.parcentage, 3)}% */}
+                              {dataVotes.parcentage.toPrecision(4)}
+                              {console.log("suma", dataVotes.parcentage)}
                             </td>
                             <td
                               style={{

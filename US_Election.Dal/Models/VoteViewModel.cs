@@ -6,6 +6,8 @@
 
         public string CandidateName { get; set; }
 
+        public double Parcentage { get; set; }
+
         public int CandidateId { get; set; }
 
         public int ElectorateId { get; set; }
