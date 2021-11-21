@@ -20,10 +20,17 @@ namespace US_Election.Dal.Services
         }
 
        public async Task<List<ElectorateViewModel>> GetAll()
-        {
+       {
             var entity = await _context.Electorates.ToListAsync();
 
             return _mapper.Map<List<ElectorateViewModel>>(entity);
+       }
+
+        public async Task<int> GetElectorateId(string name)
+        {
+            var electorate = await _context.Electorates.FirstOrDefaultAsync(x => x.Name == name);
+
+            return electorate.Id;
         }
     }
 }

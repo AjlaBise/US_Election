@@ -6,8 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
 using US_Election.Dal.Database;
+using US_Election.Dal.Repositories;
+using US_Election.Dal.Repositories.Interface;
 using US_Election.Dal.Services;
 using US_Election.Dal.Services.Interface;
+using US_Election.Services;
+using US_Election.Services.Interface;
 
 namespace US_Election
 {
@@ -39,6 +43,8 @@ namespace US_Election
 
             services.AddScoped<IVoteRepository, VoteRepository>();
             services.AddScoped<IElectorateRepository, ElectorateRepository>();
+            services.AddScoped<IExceptionRepository, ExceptionRepository>();
+            services.AddScoped<IVoteService, VoteService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
