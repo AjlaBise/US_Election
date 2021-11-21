@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace US_Election.Dal.Models
+namespace US_Election.Dal.Models.Request
 {
     public class FileModel
     {

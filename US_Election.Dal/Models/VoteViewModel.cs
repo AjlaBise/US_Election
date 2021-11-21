@@ -1,6 +1,6 @@
 ﻿namespace US_Election.Dal.Models
 {
-    public class Vote
+    public class VoteViewModel
     {
         public int Id { get; set; }
 
