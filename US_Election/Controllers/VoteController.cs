@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using US_Election.Dal.Models;
 using US_Election.Dal.Models.Request;
 using US_Election.Dal.Services.Interface;
+using US_Election.Services.Interface;
 
 namespace US_Election.Controllers
 {
@@ -12,10 +13,12 @@ namespace US_Election.Controllers
     public class VoteController : ControllerBase
     {
         private readonly IVoteRepository _voteRepository;
+        private readonly IVoteService _voteService;
 
-        public VoteController(IVoteRepository voteRepository)
+        public VoteController(IVoteRepository voteRepository, IVoteService voteService)
         {
             _voteRepository = voteRepository;
+            _voteService = voteService;
         }
 
         [HttpGet]
@@ -34,11 +37,11 @@ namespace US_Election.Controllers
 
         [HttpPost]
         [Route("postVotes")]
-        public VoteViewModel UploadFile([FromForm] FileModel file)
+        public async Task<VoteViewModel> UploadFile([FromForm] FileModel file)
         {
             try
             {
-                return _voteRepository.UploadVote(file);
+                return await _voteService.UploadVote(file);
             }
             catch (System.Exception ex)
             {

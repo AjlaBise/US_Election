@@ -7,5 +7,7 @@ namespace US_Election.Dal.Services.Interface
     public interface IElectorateRepository
     {
         Task<List<ElectorateViewModel>> GetAll();
+
+        Task<int> GetElectorateId(string name);
     }
 }
