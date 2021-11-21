@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
 using CsvHelper;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -33,6 +30,7 @@ namespace US_Election.Dal.Services
 
             return _mapper.Map<List<Models.Vote>>(entity);
         }
+
         [Obsolete]
         public Models.Vote UploadVote(FileModel file)
         {
@@ -57,7 +55,7 @@ namespace US_Election.Dal.Services
 
             ReadCreateCSV(file.FileName);
 
-            return null;
+            return new Models.Vote();
         }
 
         private List<Models.VoteUploadModal> ReadCreateCSV(string fileName)

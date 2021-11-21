@@ -1,18 +1,18 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using US_Election.Dal.Services.Interface;
 
 namespace US_Election.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ElectorateControler : ControllerBase
+    public class ElectorateController : ControllerBase
     {
         private readonly IElectorateService _service;
 
-        public ElectorateControler(IElectorateService service)
+        public ElectorateController(IElectorateService service)
         {
             _service = service;
         }

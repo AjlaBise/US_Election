@@ -47,7 +47,6 @@ const Vote = () => {
                 </thead>
                 {data.map((dataVotes) => {
                   if (dataEntry.id === dataVotes.electorateId) {
-                    console.log("dataa", dataVotes);
                     return (
                       <>
                         <tbody>
@@ -74,7 +73,7 @@ const Vote = () => {
                                 paddingTop: "10px",
                               }}
                             >
-                              sum
+                              15878
                             </td>
                             <td
                               style={{

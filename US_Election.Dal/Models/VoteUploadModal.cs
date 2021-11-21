@@ -1,8 +1,6 @@
 ﻿using CsvHelper.Configuration.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 namespace US_Election.Dal.Models
 {
     public class VoteUploadModal
@@ -15,7 +13,5 @@ namespace US_Election.Dal.Models
 
         [Index(2)]
         public string CandidateCode { get; set; } = "";
-
-
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace US_Election.Dal.Models
+﻿namespace US_Election.Dal.Models
 {
     public class Electorate
     {

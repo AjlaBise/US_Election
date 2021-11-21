@@ -1,5 +1,4 @@
-﻿
-namespace US_Election.Dal.Models.Request
+﻿namespace US_Election.Dal.Models.Request
 {
     public class VoteUpload
     {
