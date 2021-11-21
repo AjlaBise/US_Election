@@ -10,13 +10,13 @@ namespace US_Election.Dal.Mapper
         {
             AutoMapperShared shared = new AutoMapperShared();
 
-            CreateMap<Database.Vote, Models.VoteViewModel>().ForMember(dest => dest.CandidateName,
+            CreateMap<Domain.Vote, Models.VoteViewModel>().ForMember(dest => dest.CandidateName,
                 opt => opt.MapFrom(src => shared.MapIdToName(src.CandidateId)))
             .ForMember(dest => dest.Parcentage,
                 opt => opt.MapFrom(src => shared.MapParcentange(src.ElectorateId, src.CandidateId)));
 
-            CreateMap<Database.Electorate, Models.ElectorateViewModel>();
-            CreateMap<Models.VoteUploadViewModel, Database.Vote>();
+            CreateMap<Domain.Electorate, Models.ElectorateViewModel>();
+            CreateMap<Models.VoteUploadViewModel, Domain.Vote>();
         }
     }
 

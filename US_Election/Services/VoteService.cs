@@ -45,7 +45,7 @@ namespace US_Election.Services
             }
             else
             {
-                _exceptionRepository.Add(new Dal.Database.Exception());
+                _exceptionRepository.Add(new Dal.Domain.Exception());
             }
 
             await ReadCreateCSV(file.FormFile.FileName);

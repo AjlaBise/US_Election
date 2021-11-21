@@ -1,4 +1,5 @@
 ﻿using US_Election.Dal.Database;
+using US_Election.Dal.Domain;
 using US_Election.Dal.Repositories.Interface;
 
 namespace US_Election.Dal.Repositories

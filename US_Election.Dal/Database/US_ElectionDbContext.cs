@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using US_Election.Dal.Domain;
 
 namespace US_Election.Dal.Database
 {

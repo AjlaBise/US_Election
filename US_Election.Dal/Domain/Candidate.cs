@@ -1,4 +1,4 @@
-﻿namespace US_Election.Dal.Database
+﻿namespace US_Election.Dal.Domain
 {
     public class Candidate
     {
