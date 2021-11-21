@@ -5,17 +5,14 @@ import "./Home.css";
 
 const Home = () => {
   const [file, setFile] = useState();
-  const [fileName, setFileName] = useState("votes");
 
   const saveFile = (e) => {
     setFile(e.target.files[0]);
-    setFileName(e.target.files[0].name);
   };
 
   const uploadFile = async (e) => {
     const formData = new FormData();
     formData.append("formFile", file);
-    formData.append("fileName", fileName);
 
     try {
       const res = await axios.post(
@@ -48,7 +45,7 @@ const Home = () => {
           onClick={() => {
             checkExstension();
             uploadFile();
-            window.location.reload(false);
+            window.location.reload(true);
           }}
           value="upload"
         >

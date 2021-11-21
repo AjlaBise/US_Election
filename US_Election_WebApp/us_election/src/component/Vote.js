@@ -18,14 +18,12 @@ const Vote = () => {
       .get(`https://localhost:5001/api/Electorate/electorates`)
       .then((res) => {
         setDataElectorate(res.data);
-        console.log(res);
       });
   };
 
   const getDataFrom = () => {
     axios.get(`https://localhost:5001/api/Vote/votes`).then((res) => {
       setData(res.data);
-      console.log(res);
     });
   };
 
