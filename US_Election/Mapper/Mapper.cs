@@ -9,11 +9,11 @@ namespace US_Election.Dal.Mapper
         {
             AutoMapperShared shared = new AutoMapperShared();
 
-            CreateMap<Database.Vote, Models.Vote>().ForMember(dest => dest.CandidateName,
+            CreateMap<Database.Vote, Models.VoteViewModel>().ForMember(dest => dest.CandidateName,
                 opt => opt.MapFrom(src => shared.MapIdToName(src.CandidateId)));
 
-            CreateMap<Database.Electorate, Models.Electorate>();
-            CreateMap<Models.VoteUploadModal, Database.Vote>();
+            CreateMap<Database.Electorate, Models.ElectorateViewModel>();
+            CreateMap<Models.VoteUploadViewModel, Database.Vote>();
         }
     }
 

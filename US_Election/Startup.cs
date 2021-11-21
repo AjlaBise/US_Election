@@ -37,8 +37,8 @@ namespace US_Election
                                                     .AllowAnyMethod()
                                                     .AllowAnyHeader())); 
 
-            services.AddScoped<IVoteService, VoteService>();
-            services.AddScoped<IElectorateService, ElectorateService>();
+            services.AddScoped<IVoteRepository, VoteRepository>();
+            services.AddScoped<IElectorateRepository, ElectorateRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

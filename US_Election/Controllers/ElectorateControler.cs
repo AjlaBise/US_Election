@@ -10,20 +10,20 @@ namespace US_Election.Controllers
     [ApiController]
     public class ElectorateController : ControllerBase
     {
-        private readonly IElectorateService _service;
+        private readonly IElectorateRepository _electorateRepository;
 
-        public ElectorateController(IElectorateService service)
+        public ElectorateController(IElectorateRepository electorateRepository)
         {
-            _service = service;
+            _electorateRepository = electorateRepository;
         }
 
         [HttpGet]
-        [Route("getElectorate")]
-        public async Task<List<Dal.Models.Electorate>> GetAll()
+        [Route("electorates")]
+        public async Task<List<Dal.Models.ElectorateViewModel>> GetAll()
         {
             try
             {
-                return await _service.GetAll();
+                return await _electorateRepository.GetAll();
             }
             catch (Exception ex)
             {

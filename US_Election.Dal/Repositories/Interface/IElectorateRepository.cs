@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using US_Election.Dal.Models;
 
 namespace US_Election.Dal.Services.Interface
 {
-    public interface IElectorateService
+    public interface IElectorateRepository
     {
-        Task<List<Models.Electorate>> GetAll();
+        Task<List<ElectorateViewModel>> GetAll();
     }
 }

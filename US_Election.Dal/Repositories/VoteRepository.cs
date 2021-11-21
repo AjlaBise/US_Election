@@ -8,31 +8,31 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using US_Election.Dal.Database;
-using US_Election.Dal.Models;
+using US_Election.Dal.Models.Request;
 using US_Election.Dal.Services.Interface;
 
 namespace US_Election.Dal.Services
 {
-    public class VoteService : IVoteService
+    public class VoteRepository : IVoteRepository
     {
         private readonly US_ElectionDbContext _context;
         private readonly IMapper _mapper;
 
-        public VoteService(US_ElectionDbContext context, IMapper mapper)
+        public VoteRepository(US_ElectionDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public async Task<List<Models.Vote>> GetAll()
+        public async Task<List<Models.VoteViewModel>> GetAll()
         {
             var entity = await _context.Votes.ToListAsync();
 
-            return _mapper.Map<List<Models.Vote>>(entity);
+            return _mapper.Map<List<Models.VoteViewModel>>(entity);
         }
 
         [Obsolete]
-        public Models.Vote UploadVote(FileModel file)
+        public Models.VoteViewModel UploadVote(FileModel file)
         {
             string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
 
@@ -55,12 +55,12 @@ namespace US_Election.Dal.Services
 
             ReadCreateCSV(file.FileName);
 
-            return new Models.Vote();
+            return new Models.VoteViewModel();
         }
 
-        private List<Models.VoteUploadModal> ReadCreateCSV(string fileName)
+        private List<Models.VoteUploadViewModel> ReadCreateCSV(string fileName)
         {
-            var newVotes = new List<Models.VoteUploadModal>();
+            var newVotes = new List<Models.VoteUploadViewModel>();
 
             string path = $"{Directory.GetCurrentDirectory()}{@"\files"}" + "\\" + fileName;
 
@@ -71,7 +71,7 @@ namespace US_Election.Dal.Services
                 csv.ReadHeader();
                 while (csv.Read())
                 {
-                    var test = csv.GetRecord<Models.VoteUploadModal>();
+                    var test = csv.GetRecord<Models.VoteUploadViewModel>();
                     newVotes.Add(test);
                 }
             }
@@ -97,7 +97,7 @@ namespace US_Election.Dal.Services
 
                     if (votes != null)
                     {
-                        votes.NumberOfVotes = int.Parse(item.numberOfVotes);
+                        votes.NumberOfVotes = int.Parse(item.NumberOfVotes);
                         votes.OverrideFile = true;
 
                         _context.SaveChanges();
