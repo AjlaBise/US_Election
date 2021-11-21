@@ -81,8 +81,8 @@ namespace US_Election.Dal.Migrations
                 {
                     { 1, "DT", "Donald Trump" },
                     { 2, "HC", "Hillary Clinton" },
-                    { 3, "JB", " Joe Biden" },
-                    { 4, "JFK", "  John F. Kennedy" },
+                    { 3, "JB", "Joe Biden" },
+                    { 4, "JFK", "John F. Kennedy" },
                     { 5, "JR", "Jack Randall" }
                 });
 

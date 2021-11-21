@@ -63,7 +63,9 @@ const Vote = () => {
                                 paddingTop: "10px",
                               }}
                             >
-                              {dataVotes.numberOfVotes}
+                              {dataVotes.numberOfVotes === 0
+                                ? "N/A"
+                                : dataVotes.numberOfVotes}
                             </td>
                             <td
                               style={{
@@ -71,9 +73,7 @@ const Vote = () => {
                                 paddingTop: "10px",
                               }}
                             >
-                              {/* {Math.round(dataVotes.parcentage, 3)}% */}
-                              {dataVotes.parcentage.toPrecision(4)}
-                              {console.log("suma", dataVotes.parcentage)}
+                              {dataVotes.parcentage.toFixed(3)} %
                             </td>
                             <td
                               style={{
@@ -81,7 +81,7 @@ const Vote = () => {
                                 paddingTop: "10px",
                               }}
                             >
-                              {dataVotes.overrideFile ? "Error" : "-"}
+                              {dataVotes.overrideFile ? "-" : "Yes"}
                             </td>
                           </tr>
                         </tbody>

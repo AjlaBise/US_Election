@@ -10,13 +10,13 @@ namespace US_Election.Dal.Mapper
         {
             AutoMapperShared shared = new AutoMapperShared();
 
-            CreateMap<Database.Vote, Models.VoteViewModel>().ForMember(dest => dest.CandidateName,
+            CreateMap<Domain.Vote, Models.VoteViewModel>().ForMember(dest => dest.CandidateName,
                 opt => opt.MapFrom(src => shared.MapIdToName(src.CandidateId)))
             .ForMember(dest => dest.Parcentage,
                 opt => opt.MapFrom(src => shared.MapParcentange(src.ElectorateId, src.CandidateId)));
 
-            CreateMap<Database.Electorate, Models.ElectorateViewModel>();
-            CreateMap<Models.VoteUploadViewModel, Database.Vote>();
+            CreateMap<Domain.Electorate, Models.ElectorateViewModel>();
+            CreateMap<Models.VoteUploadViewModel, Domain.Vote>();
         }
     }
 
@@ -31,7 +31,7 @@ namespace US_Election.Dal.Mapper
             return candidate.Name;
         }
 
-        public double MapParcentange(int electorateId, int candidateId)
+        public float MapParcentange(int electorateId, int candidateId)
         {
             US_ElectionDbContext _context = new US_ElectionDbContext();
 
@@ -39,7 +39,11 @@ namespace US_Election.Dal.Mapper
 
             var candidateVotes = _context.Votes.FirstOrDefault(x => x.CandidateId == candidateId).NumberOfVotes;
 
-            return ((double)candidateVotes / (double)sumVotes) * 100.00;
+            if (sumVotes == 0 || candidateVotes == 0)
+            {
+                return 0;
+            }
+                return (float)((candidateVotes / sumVotes) * 100.00);           
         }
     }
 }

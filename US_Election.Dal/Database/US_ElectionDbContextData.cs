@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using US_Election.Dal.Domain;
 
 namespace US_Election.Dal.Database
 {
@@ -23,21 +24,21 @@ namespace US_Election.Dal.Database
                   new Candidate
                   {
                       Id = 3,
-                      Name = " Joe Biden",
+                      Name = "Joe Biden",
                       Code = "JB"
                   },
                    new Candidate
                    {
                        Id = 4,
-                       Name = "  John F. Kennedy",
+                       Name = "John F. Kennedy",
                        Code = "JFK"
                    },
-                    new Candidate
-                    {
+                   new Candidate
+                   {
                         Id = 5,
                         Name = "Jack Randall",
                         Code = "JR"
-                    }
+                   }
                 );
 
             #endregion
@@ -50,16 +51,16 @@ namespace US_Election.Dal.Database
                    Id = 1,
                    Name = "New York"
                },
-                 new Electorate
-                 {
-                     Id = 2,
-                     Name = "Washington"
-                 },
-                   new Electorate
-                   {
-                       Id = 3,
-                       Name = "Texas"
-                   }
+               new Electorate
+               {
+                   Id = 2,
+                   Name = "Washington"
+               },
+               new Electorate
+               {
+                   Id = 3,
+                   Name = "Texas"
+               }
                );
 
             #endregion

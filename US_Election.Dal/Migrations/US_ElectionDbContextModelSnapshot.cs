@@ -19,7 +19,7 @@ namespace US_Election.Dal.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("US_Election.Dal.Database.Candidate", b =>
+            modelBuilder.Entity("US_Election.Dal.Domain.Candidate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,13 +55,13 @@ namespace US_Election.Dal.Migrations
                         {
                             Id = 3,
                             Code = "JB",
-                            Name = " Joe Biden"
+                            Name = "Joe Biden"
                         },
                         new
                         {
                             Id = 4,
                             Code = "JFK",
-                            Name = "  John F. Kennedy"
+                            Name = "John F. Kennedy"
                         },
                         new
                         {
@@ -71,7 +71,7 @@ namespace US_Election.Dal.Migrations
                         });
                 });
 
-            modelBuilder.Entity("US_Election.Dal.Database.Electorate", b =>
+            modelBuilder.Entity("US_Election.Dal.Domain.Electorate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -105,7 +105,7 @@ namespace US_Election.Dal.Migrations
                         });
                 });
 
-            modelBuilder.Entity("US_Election.Dal.Database.Exception", b =>
+            modelBuilder.Entity("US_Election.Dal.Domain.Exception", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,7 +121,7 @@ namespace US_Election.Dal.Migrations
                     b.ToTable("Exception");
                 });
 
-            modelBuilder.Entity("US_Election.Dal.Database.Vote", b =>
+            modelBuilder.Entity("US_Election.Dal.Domain.Vote", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -274,15 +274,15 @@ namespace US_Election.Dal.Migrations
                         });
                 });
 
-            modelBuilder.Entity("US_Election.Dal.Database.Vote", b =>
+            modelBuilder.Entity("US_Election.Dal.Domain.Vote", b =>
                 {
-                    b.HasOne("US_Election.Dal.Database.Candidate", "Candidate")
+                    b.HasOne("US_Election.Dal.Domain.Candidate", "Candidate")
                         .WithMany()
                         .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("US_Election.Dal.Database.Electorate", "Electorate")
+                    b.HasOne("US_Election.Dal.Domain.Electorate", "Electorate")
                         .WithMany()
                         .HasForeignKey("ElectorateId")
                         .OnDelete(DeleteBehavior.Cascade)

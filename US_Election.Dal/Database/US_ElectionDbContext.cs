@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using US_Election.Dal.Domain;
 
 namespace US_Election.Dal.Database
 {
@@ -22,6 +23,7 @@ namespace US_Election.Dal.Database
                 optionsBuilder.UseSqlServer("Server=.;Initial Catalog=usElection;Integrated Security = true");
             }
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Candidate>(entity =>
