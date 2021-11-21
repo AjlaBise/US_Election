@@ -32,7 +32,7 @@ namespace US_Election.Services
         [Obsolete]
         public async Task<VoteViewModel> UploadVote(FileModel file)
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FileName);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "files", file.FormFile.FileName);
 
             string ext = Path.GetExtension(file.FormFile.FileName);
 
@@ -48,16 +48,32 @@ namespace US_Election.Services
                 _exceptionRepository.Add(new Dal.Database.Exception());
             }
 
-            await ReadCreateCSV(file.FileName);
+            await ReadCreateCSV(file.FormFile.FileName);
 
             return new VoteViewModel();
         }
 
         public async Task<List<VoteUploadViewModel>> ReadCreateCSV(string fileName)
         {
-            var newVotes = new List<VoteUploadViewModel>();
+            var newVotes = GetVotes(fileName);
+            
+            if (newVotes.Count() > 0)
+            {
+                foreach (var item in newVotes)
+                {
+                    var electorateId = await _electorateRepository.GetElectorateId(item.Electorate);
 
-            string path = $"{Directory.GetCurrentDirectory()}{@"\files"}" + "\\" + fileName;
+                    await _voteRepository.Update(item.CandidateCode, electorateId, int.Parse(item.NumberOfVotes));
+                }
+            }
+
+            return newVotes;
+        }
+
+        private List<VoteUploadViewModel> GetVotes(string fileName)
+        {
+            var newVotes = new List<VoteUploadViewModel>();
+            var path = $"{Directory.GetCurrentDirectory()}{@"\files"}" + "\\" + fileName;
 
             using (var reader = new StreamReader(path))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
@@ -66,27 +82,8 @@ namespace US_Election.Services
                 csv.ReadHeader();
                 while (csv.Read())
                 {
-                    var test = csv.GetRecord<VoteUploadViewModel>();
-                    newVotes.Add(test);
-                }
-            }
-
-            path = $"{Directory.GetCurrentDirectory()}{@"\files"}";
-            using (var write = new StreamWriter(path + "\\NewFile.csv"))
-            {
-                using (var csv = new CsvWriter(write, CultureInfo.InvariantCulture))
-                {
-                    csv.WriteRecords(newVotes);
-                }
-            }
-
-            if (newVotes.Count() > 0)
-            {
-                foreach (var item in newVotes)
-                {
-                    var electorateId = await _electorateRepository.GetElectorateId(item.Electorate);
-
-                    await _voteRepository.Update(item.CandidateCode, electorateId, int.Parse(item.NumberOfVotes));
+                    var newVote = csv.GetRecord<VoteUploadViewModel>();
+                    newVotes.Add(newVote);
                 }
             }
 
