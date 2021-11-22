@@ -37,13 +37,14 @@ namespace US_Election.Dal.Mapper
 
             var sumVotes = _context.Votes.Where(x => x.ElectorateId == electorateId).ToList().Sum(x => x.NumberOfVotes);
 
-            var candidateVotes = _context.Votes.FirstOrDefault(x => x.CandidateId == candidateId).NumberOfVotes;
+            var candidateVotes = _context.Votes.Where(x => x.CandidateId == candidateId).FirstOrDefault().NumberOfVotes;
 
             if (sumVotes == 0 || candidateVotes == 0)
             {
                 return 0;
             }
-                return (float)((candidateVotes / sumVotes) * 100.00);           
+
+            return (float)(((float)candidateVotes / sumVotes) * 100.00);
         }
     }
 }
