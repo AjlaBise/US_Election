@@ -10,7 +10,7 @@ using US_Election.Dal.Database;
 namespace US_Election.Dal.Migrations
 {
     [DbContext(typeof(US_ElectionDbContext))]
-    [Migration("20211121222545_init")]
+    [Migration("20211122090051_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
